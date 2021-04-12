@@ -1,0 +1,34 @@
+server:
+  port: 3344
+spring:
+  application:
+    name: cloud-config-center
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/GHKosovo/springcloud-config
+          search-paths:
+            - springcloud-config
+          force-pull: true
+      label: master
+
+  #rabiitmq相关配置
+  rabbitmq:
+    host: 192.168.0.104
+    port: 5672
+    username: guest
+    password: guest
+
+#rabbitmq相关配置，暴露bus刷新配置端点
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

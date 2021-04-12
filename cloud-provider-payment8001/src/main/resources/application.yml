@@ -3,6 +3,12 @@ server:
 spring:
   application:
     name: cloud-payment-service
+  zipkin:
+    base-url: http://192.168.0.104:9411
+  sleuth:
+    sampler:
+      #采样率值介于0到1之间，1则表示全部采集
+      probability: 1
 
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
@@ -19,4 +25,5 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
+      defaultZone: http://eureka7001.com:7001/eureka/
+      #defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
