@@ -10,10 +10,17 @@ spring:
         server-addr: 14.23.114.254:8848
     sentinel:
       transport:
-        dashboard: 14.23.114.254:8858
+        dashboard: localhost:8080
         port: 8719
         client-ip: localhost
-
+      datasource:
+        ds1:
+          nacos:
+            server-addr: 14.23.114.254:8848
+            dataId: ${spring.application.name}
+            groupId: DEFAULT_GROUP
+            data-type: json
+            rule-type: flow
 management:
   endpoints:
     web:
